@@ -3,6 +3,13 @@ GEM
   specs:
     clockwork (0.4.1)
       tzinfo
+    hipchat-api (1.0.5)
+      httparty
+    httparty (0.10.2)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
+    multi_json (1.5.0)
+    multi_xml (0.5.2)
     tzinfo (0.3.35)
 
 PLATFORMS
@@ -10,3 +17,4 @@ PLATFORMS
 
 DEPENDENCIES
   clockwork
+  hipchat-api
