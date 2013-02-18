@@ -30,6 +30,15 @@ end
 module Clockwork
   every(1.day, 'meeting.notification', at: %w(9:50 14:50), if: lambda { |t| t.weekday? }) do
     message = 'あと10分でミーティングでーす！'
+    send_message(message)
+  end
+
+  every(1.week, 'report.notification', at: 'friday 23:00') do
+    message = '一週間の振り返りをしましょう。経営報告、Keep/Problem を書こう。'
+    send_message(message)
+  end
+
+  def send_message(message)
     hipchat_api = HipChat::API.new(ENV['HIPCHAT_API_KEY'])
     from = ENV['FROM'] || 'bot'
     hipchat_api.rooms_message(ENV['ROOM'], from, message, 1)
