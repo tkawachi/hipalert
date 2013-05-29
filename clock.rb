@@ -28,13 +28,13 @@ Clockwork.configure do |config|
 end
 
 module Clockwork
-  every(1.day, 'meeting.notification', at: %w(9:50 14:50), if: lambda { |t| t.home_day? }) do
+  every(1.day, 'meeting.notification', at: %w(8:35 14:50), if: lambda { |t| t.home_day? }) do
     message = 'あと10分でミーティングでーす！'
     send_message(message)
   end
 
   every(1.week, 'report.notification', at: 'friday 18:20') do
-    message = '今日の午後やったことをまとめて話そう。経営報告、Keep/Problem を書こう。'
+    message = '今日の午後やったことをまとめて話そう。Keep/Problem を書こう。'
     send_message(message)
   end
 
