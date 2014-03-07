@@ -33,11 +33,6 @@ module Clockwork
     send_message(message)
   end
 
-  every(1.week, 'report.notification', at: 'friday 18:20') do
-    message = '今日の午後やったことをまとめて話そう。Keep/Problem を書こう。'
-    send_message(message)
-  end
-
   def send_message(message)
     hipchat_api = HipChat::API.new(ENV['HIPCHAT_API_KEY'])
     from = ENV['FROM'] || 'bot'
