@@ -28,10 +28,10 @@ Clockwork.configure do |config|
 end
 
 module Clockwork
-  every(1.day, 'meeting.notification', at: %w(8:20 14:50), if: lambda { |t| t.home_day? }) do
-    message = 'あと10分でミーティングでーす！'
-    send_message(message)
-  end
+#  every(1.day, 'meeting.notification', at: %w(8:20 14:50), if: lambda { |t| t.home_day? }) do
+#    message = 'あと10分でミーティングでーす！'
+#    send_message(message)
+#  end
 
   def send_message(message)
     hipchat_api = HipChat::API.new(ENV['HIPCHAT_API_KEY'])
